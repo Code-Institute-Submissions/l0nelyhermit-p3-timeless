@@ -15,40 +15,50 @@ COLLECTION = 'listing'
 connect = pymongo.MongoClient(MONGO_URI)
 db = connect[DATABASE][COLLECTION]
 
+# cloudinary setup
+CLOUD_NAME = os.environ.get('CLOUD_NAME')
+UPLOAD_PRESET = os.environ.get('UPLOAD_PRESET')
+
 
 @app.route('/')
 def index():
-    data = db.find({}).limit(3)
+    data = db.find({})
     return render_template("index.html", data=data)
 
 
 @app.route('/create_post')
 def create_post():
+    return render_template("create_post.html",
+                           cloud_name=CLOUD_NAME, upload_preset=UPLOAD_PRESET)
 
-    return render_template("create_post.html")
+
 @app.route('/create_post', methods=['POST'])
 def insert_post():
     watch_brand = request.form.get("watch_brand")
     watch_model = request.form.get("watch_model")
     content = request.form.get("content")
     price = request.form.get("price")
+    uploadURL = request.form.get('uploaded-file-url')
+    assetID = request.form.get('asset-id')
     db.insert({
         'content': content,
         'watch_brand': watch_brand,
         'watch_model': watch_model,
-        'price':price
+        'price': price,
+        'uploadURL': uploadURL,
+        'assetID': assetID
     })
     return redirect(url_for('index'))
 
 
-@app.route('/edit_post')
-def edit_post():
+@app.route('/edit_post/<item_id>')
+def edit_post(item_id):
+
     return render_template("edit_post.html")
 
 
 @app.route('/edit_post', methods=['POST'])
 def save_post():
-    
     return redirect(url_for('index'))
 
 
