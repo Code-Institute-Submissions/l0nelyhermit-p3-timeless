@@ -1,22 +1,24 @@
-{% extends 'base.html' %}
+{% extends 'base_light.html' %}
 
 {% block content %}
-    <h1>Hello Index World</h1>
-    <table>
-        {% for watch in data %}
-        <tr>
-            <td>
-                <div class="img-box">
-                    <img src="{{watch.uploadURL}}" class="img-fluid" alt="" style="width:200px">
+<section class="container-fluid pt-5">
+    <div class="row">
+        <div class="col-12">
+            {% for watch in data %}
+            <div class="row px-md-5 px-2">
+                <div class="col-md-4 col-12 p-2 text-center">
+                    <img src="{{watch.uploadURL}}"  alt="watch picture" style="width:300px">
                 </div>
-            </td>
-            <td><h3>{{ watch.watch_brand }} {{watch.watch_model}}</h3></td>
-            <td><p>{{ watch.content }}</p></td>
-            <td>$ {{watch.price}}</td>
-            <td>
-                <a href="{{ url_for ('edit_post', item_id=watch._id) }}">edit</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
+                <div class="col-md-8 col-12 py-2 px-3">
+                    <h3>{{ watch.watch_brand }} {{watch.watch_model}}</h3>
+                    <small><a href="{{ url_for ('edit_post', item_id=watch._id)}}" class="text-muted fst-italic">modify</a> | <a href="" class="text-danger fst-italic">unlist</a></small>
+                    <p class="mt-3">{{ watch.content }}</p>
+                    <small class="text-muted">$ {{watch.price}}</small>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 {% endblock %}
+
