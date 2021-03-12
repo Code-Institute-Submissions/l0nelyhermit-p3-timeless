@@ -1,20 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Hello Index World</h1>
-    <table>
-        {% for watch in data %}
-        <tr>
-            <td>
-                <div class="img-box">
-                    <img src="{{watch.uploadURL}}" class="img-fluid" alt="" style="height:100px">
-                </div>
-            </td>
-            <td><h3>{{ watch.watch_brand }}</h3></td>
-            <td>
-                <a href="{{ url_for ('edit_post', item_id=watch._id) }}">edit</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
+<main>
+    <div class="overlay">
+        <div class="callout">
+            <h1>Timeless Discovery</h1>
+            <p>Just like you, we’re obsessed with the watches we own, and the watches we don’t own yet…</p>
+            <div class="btn btn-dark">SHOP ALL WATCHES</div>
+        </div>
+    </div>
+</main>
 {% endblock %}
