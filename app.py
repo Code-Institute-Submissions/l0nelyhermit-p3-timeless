@@ -27,10 +27,12 @@ def index():
     data = db.find({})
     return render_template("index.html", data=data)
 
+
 @app.route('/show_post')
 def show_post():
     data = db.find({})
     return render_template("show_post.html", data=data)
+
 
 @app.route('/create_post')
 def create_post():
@@ -48,7 +50,7 @@ def insert_post():
     assetID = request.form.get('asset-id')
 
     # save to database
-    db.insertMany({
+    db.insert({
         'watch_brand': watch_brand,
         'watch_model': watch_model,
         'content': content,
@@ -56,7 +58,7 @@ def insert_post():
         'uploadURL': uploadURL,
         'assetID': assetID
     })
-    return redirect(url_for('index'))
+    return redirect(url_for('show_post'))
 
 
 @app.route('/edit_post/<item_id>')
@@ -91,7 +93,7 @@ def save_post(item_id):
             'assetID': assetID
         }
     })
-    return redirect(url_for('index'))
+    return redirect(url_for('show_post'))
 
 
 @app.route('/confirm_delete_post')
