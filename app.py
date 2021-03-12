@@ -2,6 +2,8 @@ from flask import Flask, render_template, redirect, url_for, request
 import os
 import pymongo
 from dotenv import load_dotenv
+from bson.objectid import ObjectId
+
 
 load_dotenv()
 
@@ -40,7 +42,7 @@ def insert_post():
     price = request.form.get("price")
     uploadURL = request.form.get('uploaded-file-url')
     assetID = request.form.get('asset-id')
-    db.insert({
+    db.insertMany({
         'content': content,
         'watch_brand': watch_brand,
         'watch_model': watch_model,
@@ -53,13 +55,15 @@ def insert_post():
 
 @app.route('/edit_post/<item_id>')
 def edit_post(item_id):
+    watch = db.find_one({
+        "_id": ObjectId(item_id)
+    })
+    return render_template("edit_post.html", watch=watch)
 
-    return render_template("edit_post.html")
 
-
-@app.route('/edit_post', methods=['POST'])
-def save_post():
-    return redirect(url_for('index'))
+# @app.route('/edit_post', methods=['POST'])
+# def save_post():
+#     return redirect(url_for('index'))
 
 
 @app.route('/confirm_delete_post')
