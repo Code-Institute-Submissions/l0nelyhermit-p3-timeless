@@ -20,7 +20,8 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top p-5">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url_for ('index') }}"><img src="{{ url_for('static', filename='media/watch-logo.jpeg') }}" alt="watch logo"></a>
+            <a class="navbar-brand" href="{{ url_for ('index') }}"><img
+                    src="{{ url_for('static', filename='media/watch-logo.jpeg') }}" alt="watch logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -30,31 +31,34 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-5">
                     <!-- SHOP MENU -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             SHOP
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{ url_for ('show_post_selected', brand='Rolex')}}">ROLEX</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for ('show_post_selected', brand='Bulova')}}">BULOVA</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for ('show_post_selected', brand='Omega')}}">OMEGA</a></li>
-                     </ul>
+                            <li><a class="dropdown-item"
+                                    href="{{ url_for ('show_post_selected', brand='Rolex')}}">ROLEX</a></li>
+                            <li><a class="dropdown-item"
+                                    href="{{ url_for ('show_post_selected', brand='Bulova')}}">BULOVA</a></li>
+                            <li><a class="dropdown-item"
+                                    href="{{ url_for ('show_post_selected', brand='Omega')}}">OMEGA</a></li>
+                        </ul>
                     </li>
                     <!-- SELL WATCH - CRUD MENU -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             SELL YOUR WATCH
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="{{ url_for ('create_post') }}">SELL MY WATCH</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for ('show_post') }}">VIEW MY LISTINGS</a></li>                            
+                            <li><a class="dropdown-item" href="{{ url_for ('show_post') }}">VIEW MY LISTINGS</a></li>
                         </ul>
                     </li>
                     <!-- EXPLORE NAVBAR (DISABLED) -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             EXPLORE
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -64,9 +68,9 @@
                             <li><a class="dropdown-item disabled" disabled href="#">OUR LOCATIION</a></li>
                         </ul>
                     </li>
-                    
+
                 </ul>
-               
+
             </div>
         </div>
     </nav>

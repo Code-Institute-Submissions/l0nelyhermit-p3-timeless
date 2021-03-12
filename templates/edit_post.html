@@ -8,9 +8,12 @@
                 <h3>Modifying {{watch.watch_brand}} {{watch.watch_model}}</h3>
                 <!-- watch brand-->
                 <select class="form-select" name="watch_brand">
-                    <option value="Rolex" {% if watch['watch_brand']=='Rolex' %} selected="selected"{% endif %}>Rolex</option>
-                    <option value="Bulova" {% if watch['watch_brand']=='Bulova' %} selected="selected"{% endif %}>Bulova</option>
-                    <option value="Omega" {% if watch['watch_brand']=='Omega' %} selected="selected"{% endif %}>Omega</option>
+                    <option value="Rolex" {% if watch['watch_brand']=='Rolex' %} selected {% endif %}> Rolex
+                    </option>
+                    <option value="Bulova" {% if watch['watch_brand']=='Bulova' %} selected {% endif %}>
+                        Bulova</option>
+                    <option value="Omega" {% if watch['watch_brand']=='Omega' %} selected {% endif %}> Omega
+                    </option>
                 </select>
                 <!-- watch model -->
                 <div class="mb-3">
