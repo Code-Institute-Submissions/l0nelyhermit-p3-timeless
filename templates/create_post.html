@@ -1,34 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section>
+<section class="container-fluid">
     <div class="p-5">
-        <form>
-            <!-- title input -->
+        <form method="POST">
+            <!-- watch brand-->
             <div class="mb-3">
-                <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" name="title">
+                <label for="watch_brand" class="form-label">Watch Brand</label>
+                <input type="text" class="form-control" id="watch_brand" name="watch_brand">
+            </div>
+            <!-- watch model -->
+            <div class="mb-3">
+                <label for="watch_model" class="form-label">Watch Model</label>
+                <input type="text" class="form-control" id="watch_model" name="watch_model">
             </div>
             <!-- content -->
             <div class="form-floating">
+                Description for the watch
                 <textarea class="form-control" placeholder="Description for the watch" id="content" name="content"
                     style="height: 200px"></textarea>
                 <label for="content"></label>
             </div>
-            <!-- watch name-->
+            <!-- price -->
             <div class="mb-3">
-                <label for="watch_name" class="form-label">Watch Name</label>
-                <input type="text" class="form-control" id="watch_name" name="watch_name">
-            </div>
-            <!-- seller name -->
-            <div class="mb-3">
-                <label for="seller" class="form-label">Name</label>
-                <input type="text" class="form-control" id="seller" name="seller">
-            </div>
-            <!-- contact_detail -->
-            <div class="mb-3">
-                <label for="contact" class="form-label">Contact</label>
-                <input type="text" class="form-control" id="contact" name="contact">
+                <label for="price" class="form-label">Watch Price ($)</label>
+                <input type="text" class="form-control" id="price" name="price" placeholder="56,000">
             </div>
             <!-- watch_pic -->
 
