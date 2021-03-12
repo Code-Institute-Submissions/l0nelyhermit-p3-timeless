@@ -7,11 +7,11 @@
             <form method="POST">
                 <h3>Modifying {{watch.watch_brand}} {{watch.watch_model}}</h3>
                 <!-- watch brand-->
-                <div class="mb-3">
-                    <label for="watch_brand" class="form-label">Watch Brand</label>
-                    <input type="text" class="form-control" id="watch_brand" name="watch_brand"
-                        value="{{watch.watch_brand}}">
-                </div>
+                <select class="form-select" name="watch_brand">
+                    <option value="Rolex" {% if watch['watch_brand']=='Rolex' %} selected="selected"{% endif %}>Rolex</option>
+                    <option value="Bulova" {% if watch['watch_brand']=='Bulova' %} selected="selected"{% endif %}>Bulova</option>
+                    <option value="Omega" {% if watch['watch_brand']=='Omega' %} selected="selected"{% endif %}>Omega</option>
+                </select>
                 <!-- watch model -->
                 <div class="mb-3">
                     <label for="watch_model" class="form-label">Watch Model</label>
