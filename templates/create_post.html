@@ -3,14 +3,37 @@
 {% block content %}
 <section>
     <div class="p-5">
-    <form>
-        <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="title" name="title">
-        </div>
-    
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+        <form>
+            <!-- title input -->
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title">
+            </div>
+            <!-- content -->
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Description for the watch" id="content" name="content"
+                    style="height: 200px"></textarea>
+                <label for="content"></label>
+            </div>
+            <!-- watch name-->
+            <div class="mb-3">
+                <label for="watch_name" class="form-label">Watch Name</label>
+                <input type="text" class="form-control" id="watch_name" name="watch_name">
+            </div>
+            <!-- seller name -->
+            <div class="mb-3">
+                <label for="seller" class="form-label">Name</label>
+                <input type="text" class="form-control" id="seller" name="seller">
+            </div>
+            <!-- contact_detail -->
+            <div class="mb-3">
+                <label for="contact" class="form-label">Contact</label>
+                <input type="text" class="form-control" id="contact" name="contact">
+            </div>
+            <!-- watch_pic -->
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
 </section>
 {% endblock %}
