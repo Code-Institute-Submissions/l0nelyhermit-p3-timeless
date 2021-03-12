@@ -34,6 +34,12 @@ def show_post():
     return render_template("show_post.html", data=data)
 
 
+@app.route('/show_post_selected/<brand>')
+def show_post_selected(brand):
+    data = db.find({"watch_brand": brand})
+    return render_template("show_post_selected.html", data=data, brand=brand)
+
+
 @app.route('/create_post')
 def create_post():
     return render_template("create_post.html",
@@ -42,6 +48,7 @@ def create_post():
 
 @app.route('/create_post', methods=['POST'])
 def insert_post():
+    # Load in data from form
     watch_brand = request.form.get("watch_brand")
     watch_model = request.form.get("watch_model")
     content = request.form.get("content")
@@ -60,9 +67,12 @@ def insert_post():
     })
     return redirect(url_for('show_post'))
 
+# Edit route
+
 
 @app.route('/edit_post/<item_id>')
 def edit_post(item_id):
+    # Find the item to be edited
     watch = db.find_one({
         "_id": ObjectId(item_id)
     })
@@ -96,14 +106,13 @@ def save_post(item_id):
     return redirect(url_for('show_post'))
 
 
-@app.route('/confirm_delete_post')
-def confirm_delete_post():
-    return render_template("confirm_delete_post.html")
-
-
-@app.route('/delete_post')
-def delete_post():
-    return redirect(url_for('index'))
+# Delete route
+@app.route('/delete_post/<item_id>')
+def delete_post(item_id):
+    db.delete_one({
+        '_id': ObjectId(item_id)
+    })
+    return redirect(url_for('show_post'))
 
 
 if __name__ == '__main__':
